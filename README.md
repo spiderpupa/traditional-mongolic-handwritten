@@ -49,6 +49,9 @@ a = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ```
 * 이미지 경로를 설정하고 배열 추가에 용이하도록 이미지를 n x 48 형태로 재배열
 ```
+def outputPath(n):
+    return('/content/drive/MyDrive/mhw/data/images/trainset_images/img%d.png' %(n+1))
+    
 image=(imageFile(i))
 dataReshaped=(image.reshape(1,image.shape[0]*48))
 ```
@@ -82,8 +85,9 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
     img=img.reshape(299,48)
     matplotlib.image.imsave(outputPath(i), img, cmap='gray')
 ```
-> <결과물><br>
-![스크린샷(16)](https://user-images.githubusercontent.com/101073973/204449409-bcab6d6e-d454-49fa-9d75-f317bae635d1.png)
+* 반복문을 통해 이미지의 개수만큼 이를 반복
+> <샘플><br>
+![다운로드](https://user-images.githubusercontent.com/101073973/204458144-2ac936e0-b51f-4d7d-9541-569742c5f5e4.png)
 <br>
 
 * 메모리 관리 위해 del() 함수를 이용, 사용을 마친 데이터를 제거한다.
