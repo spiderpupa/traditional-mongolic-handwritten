@@ -34,7 +34,7 @@
 > &nbsp;&nbsp;&nbsp;&nbsp;lengthlist.append(imageFile(i).shape[0])<br>
 ><br>
 > print('가장 긴 이미지 파일의 길이:', max(lengthlist),'px')<br>
->> 가장 긴 이미지 파일의 길이: 299 px<br>
+> >>> 가장 긴 이미지 파일의 길이: 299 px<br>
 
 #### 가장 큰 이미지의 길이는 299, 그보다 짧은 이미지들은 길이가 299가 되도록 패딩을 추가한다.
 * 1 x 48 형태의 ndarray 하나를 생성
@@ -42,10 +42,64 @@
                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0 ]])<br>
 * 각각의 이미지를 1 x n 형태로 reshape 후 위아래로 배열을 추가
+```
+ # 패딩 크기 설정
+    margin=(299-image.shape[0])/2
+    # 나눈 값이 정수가 아닐 경우 위를 1 짧게, 아래를 1 길게 
+    if margin%1==0:
+        upper_padding=int(margin)
+        lower_padding=int(margin)
+    else:
+        upper_padding=int(margin-0.5)
+        lower_padding=int(margin+0.5)
+    
+    # 저장용 배열
+    img=np.array([])
+    upper_margin=np.array([])
+    lower_margin=np.array([])
+    #패딩 만들기
+    for j in range(upper_padding):     
+        upper_margin = np.append(a,upper_margin)
+    for k in range(lower_padding):
+        lower_margin = np.append(a,lower_margin)
+    # 패딩 붙이기
+    img=np.append(upper_margin,dataReshaped)
+    img=np.append(img,lower_margin)
+    # 299*48 사이즈로 변형
+    img=img.reshape(299,48)
+    #png로 저장
+    matplotlib.image.imsave(outputPath(i), img, cmap='gray')
+```
 > for i in range(len(data["train_data"])):<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;image=(imageFile(i))<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;dataReshaped=(image.reshape(1,image.shape[0]*48))<br>
-![스크린샷(15)](https://user-images.githubusercontent.com/101073973/204447974-632a8e4c-6696-4780-81dd-72ee2c7745e7.png)
+>  # 패딩 크기 설정
+    margin=(299-image.shape[0])/2
+    # 나눈 값이 정수가 아닐 경우 위를 1 짧게, 아래를 1 길게 
+    if margin%1==0:
+        upper_padding=int(margin)
+        lower_padding=int(margin)
+    else:
+        upper_padding=int(margin-0.5)
+        lower_padding=int(margin+0.5)
+    
+    # 저장용 배열
+    img=np.array([])
+    upper_margin=np.array([])
+    lower_margin=np.array([])
+    #패딩 만들기
+    for j in range(upper_padding):     
+        upper_margin = np.append(a,upper_margin)
+    for k in range(lower_padding):
+        lower_margin = np.append(a,lower_margin)
+    # 패딩 붙이기
+    img=np.append(upper_margin,dataReshaped)
+    img=np.append(img,lower_margin)
+    # 299*48 사이즈로 변형
+    img=img.reshape(299,48)
+    #png로 저장
+    matplotlib.image.imsave(outputPath(i), img, cmap='gray')
+
 
 * 그 후 배열을 1 x 299 형태로 다시 reshape, png 형태로 저장
 
