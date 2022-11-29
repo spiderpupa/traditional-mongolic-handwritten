@@ -32,20 +32,19 @@
 ![스크린샷(16)](https://user-images.githubusercontent.com/101073973/204449409-bcab6d6e-d454-49fa-9d75-f317bae635d1.png)
 
 * 메모리 관리 위해 del() 함수를 이용, 사용을 마친 데이터를 제거한다.
-> del(data)
-> del(lengthlist)
-> del(a)
-> del(image)
-> del(dataReshaped)
-> del(margin)
-> del(upper_padding)
-> del(lower_padding)
-> del(upper_margin)
-> del(lower_margin)
+> del(data)<br>
+> del(lengthlist)<br>
+> del(a)<br>
+> del(image)<br>
+> del(dataReshaped)<br>
+> del(margin)<br>
+> del(upper_padding)<br>
+> del(lower_padding)<br>
+> del(upper_margin)<br>
+> del(lower_margin)<br>
 > del(img)
 <br>
-![스크린샷(17)](https://user-images.githubusercontent.com/101073973/204449829-0b0357ae-e4df-426d-b794-bd69d651a784.png)
-
+<br>
 
 ## 데이터 라벨링
 ### TODO
