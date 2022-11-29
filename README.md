@@ -26,8 +26,15 @@
 >>![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204452058-d74170c1-c720-49a1-b04c-6f0898b32355.png)
 
 * 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
+> def imageFile(n):<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;return(data["train_data"][n][0])<br>
+> <br>    
+> lengthlist=[]<br>
+> for i in range(len(data["train_data"])):<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;lengthlist.append(imageFile(i).shape[0])<br>
+><br>
+> print('가장 긴 이미지 파일의 길이:', max(lengthlist),'px')<br>
 <br>
-![스크린샷(12)](https://user-images.githubusercontent.com/101073973/204447298-9ea2d940-d52a-4909-8532-fe4222628d49.png)
 
 * 가장 큰 이미지의 길이는 299, 그보다 짧은 이미지들은 길이가 299가 되도록 패딩을 추가한다.
 ![스크린샷(15)](https://user-images.githubusercontent.com/101073973/204447974-632a8e4c-6696-4780-81dd-72ee2c7745e7.png)
