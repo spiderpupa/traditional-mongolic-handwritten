@@ -63,57 +63,27 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
         upper_padding=int(margin-0.5)
         lower_padding=int(margin+0.5)
 ```
-* 각각의 이미지를 1 x n 형태로 reshape 후 위아래로 배열을 추가
+* 저장용 배열을 만들고, 반복문을 통해 원하는 길이만큼 배열을 추가
 ```
-    # 저장용 배열
     img=np.array([])
     upper_margin=np.array([])
     lower_margin=np.array([])
-    #패딩 만들기
+
     for j in range(upper_padding):     
         upper_margin = np.append(a,upper_margin)
     for k in range(lower_padding):
         lower_margin = np.append(a,lower_margin)
-    # 패딩 붙이기
+
     img=np.append(upper_margin,dataReshaped)
     img=np.append(img,lower_margin)
-    # 299*48 사이즈로 변형
+```
+* 299 x 48 형태로 재배열 후 png 형태로 저장
+```
     img=img.reshape(299,48)
     #png로 저장
     matplotlib.image.imsave(outputPath(i), img, cmap='gray')
 ```
-> for i in range(len(data["train_data"])):<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;image=(imageFile(i))<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;dataReshaped=(image.reshape(1,image.shape[0]*48))<br>
->  # 패딩 크기 설정
-    margin=(299-image.shape[0])/2
-    # 나눈 값이 정수가 아닐 경우 위를 1 짧게, 아래를 1 길게 
-    if margin%1==0:
-        upper_padding=int(margin)
-        lower_padding=int(margin)
-    else:
-        upper_padding=int(margin-0.5)
-        lower_padding=int(margin+0.5)
-    
-    # 저장용 배열
-    img=np.array([])
-    upper_margin=np.array([])
-    lower_margin=np.array([])
-    #패딩 만들기
-    for j in range(upper_padding):     
-        upper_margin = np.append(a,upper_margin)
-    for k in range(lower_padding):
-        lower_margin = np.append(a,lower_margin)
-    # 패딩 붙이기
-    img=np.append(upper_margin,dataReshaped)
-    img=np.append(img,lower_margin)
-    # 299*48 사이즈로 변형
-    img=img.reshape(299,48)
-    #png로 저장
-    matplotlib.image.imsave(outputPath(i), img, cmap='gray')
 
-
-* 그 후 배열을 1 x 299 형태로 다시 reshape, png 형태로 저장
 
 ##### <결과물>
 ![스크린샷(16)](https://user-images.githubusercontent.com/101073973/204449409-bcab6d6e-d454-49fa-9d75-f317bae635d1.png)
