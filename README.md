@@ -14,7 +14,7 @@
 <br>
 <br>
 
-## 데이터셋 처리 후 이미지 파일로 저장
+## 1. 데이터셋 처리 후 이미지 파일로 저장
 
 #### 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치를 확인한다.
 ```
@@ -105,7 +105,7 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
 <br>
 <br>
 
-## 데이터 라벨링
+## 2. 데이터 라벨링
 ### 데이터 생성기 클래스에 맞춰 라벨을 재설정
 * 텍스트파일 형태의 라벨을 불러와 image, labels 두 개의 열로 이루어진 리스트로 저장
 ```
@@ -134,7 +134,8 @@ trainset_labels.to_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.cs
 > ![스크린샷(18)](https://user-images.githubusercontent.com/101073973/204460766-0e134b08-90d7-4261-b640-a3ac532ab14a.png)
 <br>
 
-## 데이터 생성기 클래스
+## 3. 데이터 전처리
+* 데이터 생성기 클래스
 ```
 class DataGenerator(Sequence):
     def __init__(self, path, list_IDs, labels,img_sizeX, img_sizeY,
@@ -180,7 +181,29 @@ class DataGenerator(Sequence):
             y[i, ] = to_categorical(self.labels[i], num_classes=self.num_classes)
         return X, y
 ```
+* 데이터 전처리
+```
+# 이미지 주소 및 클래스 라벨 파일 불러오기
+train_labels = pd.read_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.csv')
 
+# 라벨 정보 전처리
+# 전체 클래스 수
+clss_num = len(train_labels['labels'].unique())
+# 클래스 -> 숫자로 변환 (카테고리 형식의 클래스를 원 핫 인코딩)
+labels_dict = dict(zip(train_labels['labels'].unique(), range(clss_num)))
+train_labels = train_labels.replace({"labels": labels_dict})
+img_sizeX = 299
+img_sizeY = 48
+img_ch = 1
+num_class = 5000
+batch_size = 32
+
+train_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset_images', train_labels['image'],
+                                train_labels['labels'],
+                                img_sizeX, img_sizeY,
+                                batch_size, 
+                                img_ch, num_class)
+```
 ## 학습
 
 
