@@ -205,7 +205,6 @@ train_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset
                                 img_ch, num_class)
 ```
 ## 4. 학습 및 평가
-### 학습
 * 모델 설정
 ```
 model=models.Sequential()
@@ -256,6 +255,26 @@ model.add(layers.Dense(933, activation='softmax'))
 > Trainable params: 19,330,469<br>
 > Non-trainable params: 0<br>
 > _________________________________________________________________<br>
+* 학습
+```
+checkpoint_path = 'D:/VS_Code_Workspace/mhw/Data/models/cp--{epoch:04d}.ckpt'
+checkpoint_dir = os.path.dirname(checkpoint_path)
+
+cp_callback = tf.keras.callbacks.ModelCheckpoint(checkpoint_path,
+                                                 save_weights_only=True,
+                                                 verbose=0,
+                                                 save_freq='epoch',
+                                                 )  # 5번째 에포크마다 가중치를 저장
+```
+```
+#학습과정 설정
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+```
+```
+history = model.fit_generator(train_generator, epochs=1)
+```
 * 평가
 ```
 #TODO
