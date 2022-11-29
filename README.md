@@ -34,7 +34,8 @@
 > &nbsp;&nbsp;&nbsp;&nbsp;lengthlist.append(imageFile(i).shape[0])<br>
 ><br>
 > print('가장 긴 이미지 파일의 길이:', max(lengthlist),'px')<br>
-<br>
+>> <결과><br>
+>> 가장 긴 이미지 파일의 길이: 299 px<br>
 
 * 가장 큰 이미지의 길이는 299, 그보다 짧은 이미지들은 길이가 299가 되도록 패딩을 추가한다.
 ![스크린샷(15)](https://user-images.githubusercontent.com/101073973/204447974-632a8e4c-6696-4780-81dd-72ee2c7745e7.png)
