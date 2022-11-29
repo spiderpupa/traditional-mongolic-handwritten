@@ -204,7 +204,62 @@ train_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset
                                 batch_size, 
                                 img_ch, num_class)
 ```
-## 학습
+## 4. 학습 및 평가
+### 학습
+* 모델 설정
+```
+model=models.Sequential()
+```
+```
+#인코딩
+model.add(layers.Conv2D(64, (3, 3), activation='relu', input_shape=(297, 48, 1)))
+model.add(layers.MaxPooling2D(2, 2))
+model.add(layers.Conv2D(128, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D(2, 2))
+model.add(layers.Conv2D(256, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D(2, 2))
+model.add(layers.Conv2D(512, (3, 3), activation='relu'))
+#디코딩
+model.add(layers.Flatten())
+model.add(layers.Dense(512, activation='relu'))
+model.add(layers.Dense(933, activation='softmax'))
+```
+> Model: "sequential"<br>
+> _________________________________________________________________<br>
+> Layer (type)                Output Shape              Param #   <br>
+> =================================================================<br>
+> conv2d (Conv2D)             (None, 295, 46, 64)       640       <br>
+>                                                                 <br>
+ max_pooling2d (MaxPooling2D  (None, 147, 23, 64)      0         
+ )                                                               
+                                                                 
+ conv2d_1 (Conv2D)           (None, 145, 21, 128)      73856     
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 72, 10, 128)      0         
+ 2D)                                                             
+                                                                 
+ conv2d_2 (Conv2D)           (None, 70, 8, 256)        295168    
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 35, 4, 256)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_3 (Conv2D)           (None, 33, 2, 512)        1180160   
+                                                                 
+ flatten (Flatten)           (None, 33792)             0         
+                                                                 
+ dense (Dense)               (None, 512)               17302016  
+                                                                 
+ dense_1 (Dense)             (None, 933)               478629    
+                                                                 
+=================================================================
+Total params: 19,330,469
+Trainable params: 19,330,469
+Non-trainable params: 0
+_________________________________________________________________
+* 평가
+```
+#TODO
+```
 
 
 
