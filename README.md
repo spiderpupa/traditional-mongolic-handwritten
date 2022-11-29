@@ -16,7 +16,7 @@
 
 ## 데이터셋 처리 후 이미지 파일로 저장
 
-* 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치 확인
+#### 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치를 확인한다.
 ```
 data=sio.loadmat('/content/drive/MyDrive/mhw/data/Trainset.mat')
 print("\nTrainset.mat")
@@ -27,7 +27,7 @@ for i in data.keys():
 > <결과><br>
 >![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204452058-d74170c1-c720-49a1-b04c-6f0898b32355.png)
 
-* 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
+#### 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
 ```
 def imageFile(n):
     return(data["train_data"][n][0])
@@ -47,18 +47,24 @@ a = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0 ]])
 ```
-* 각각의 이미지를 1 x n 형태로 reshape 후 위아래로 배열을 추가
+* 이미지 경로를 설정하고 배열 추가에 용이하도록 이미지를 n x 48 형태로 재배열
 ```
- # 패딩 크기 설정
+image=(imageFile(i))
+dataReshaped=(image.reshape(1,image.shape[0]*48))
+```
+* 패딩은 위아래로 균일하게, 만약 그러지 못할 경우 윗단이 1px 짧고 아랫단이 1px 긴 형태로 만듦
+```
     margin=(299-image.shape[0])/2
-    # 나눈 값이 정수가 아닐 경우 위를 1 짧게, 아래를 1 길게 
+     
     if margin%1==0:
         upper_padding=int(margin)
         lower_padding=int(margin)
     else:
         upper_padding=int(margin-0.5)
         lower_padding=int(margin+0.5)
-    
+```
+* 각각의 이미지를 1 x n 형태로 reshape 후 위아래로 배열을 추가
+```
     # 저장용 배열
     img=np.array([])
     upper_margin=np.array([])
