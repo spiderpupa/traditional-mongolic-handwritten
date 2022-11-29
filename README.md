@@ -17,28 +17,33 @@
 ## 데이터셋 처리 후 이미지 파일로 저장
 
 * 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치 확인
-> data=sio.loadmat('/content/drive/MyDrive/mhw/data/Trainset.mat')<br>
-> print("\nTrainset.mat")<br>
-> print('dtype: ', type(data))<br>
-> for i in data.keys():<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;print('label name: "{name}", item quantity: {length}'.format(name=i, length=len(data[i])))<br>
->> <결과><br>
->>![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204452058-d74170c1-c720-49a1-b04c-6f0898b32355.png)
+```
+data=sio.loadmat('/content/drive/MyDrive/mhw/data/Trainset.mat')
+print("\nTrainset.mat")
+print('dtype: ', type(data))
+for i in data.keys():
+    print('label name: "{name}", item quantity: {length}'.format(name=i, length=len(data[i])))
+```
+> <결과><br>
+>![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204452058-d74170c1-c720-49a1-b04c-6f0898b32355.png)
 
 * 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
-> def imageFile(n):<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;return(data["train_data"][n][0])<br>
-> <br>    
-> lengthlist=[]<br>
-> for i in range(len(data["train_data"])):<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;lengthlist.append(imageFile(i).shape[0])<br>
-><br>
-> print('가장 긴 이미지 파일의 길이:', max(lengthlist),'px')<br>
-> >>> 가장 긴 이미지 파일의 길이: 299 px<br>
+```
+def imageFile(n):
+    return(data["train_data"][n][0])
+    
+lengthlist=[]
+for i in range(len(data["train_data"])):
+    lengthlist.append(imageFile(i).shape[0])
+
+print('가장 긴 이미지 파일의 길이:', max(lengthlist),'px')
+```
+> 가장 긴 이미지 파일의 길이: 299 px<br>
 
 #### 가장 큰 이미지의 길이는 299, 그보다 짧은 이미지들은 길이가 299가 되도록 패딩을 추가한다.
 * 1 x 48 형태의 ndarray 하나를 생성
-```a = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+```
+a = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0 ]])
 ```
