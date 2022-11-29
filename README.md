@@ -106,5 +106,30 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
 <br>
 
 ## 데이터 라벨링
-### TODO
+### 데이터 생성기 클래스에 맞춰 라벨을 재설정
+* 텍스트파일 형태의 라벨을 불러와 image, labels 두 개의 열로 이루어진 리스트로 저장
+```
+trainset_labels=['image','labels']
+with open('/content/drive/MyDrive/mhw/data/labels/Trainset_label.txt', 'r', encoding='utf-16 le') as label:
+    for i in range(100000):
+        line=str(label.readline())
+        line=line.replace('\ufeff', '')
+        line=line.replace('\n', '')
+        trainset_labels.append('img%d.png' %(i+1))
+        trainset_labels.append(line)
+    label.close()
+```
+* 100001 x 2 형태의 ndarray로 배열
+```
+trainset_labels=np.array(trainset_labels)
+trainset_labels=trainset_labels.reshape(100001,2)
+trainset_labels=pd.DataFrame(trainset_labels)
+```
+* csv 파일로 저장
+```
+trainset_labels.to_csv('D:/VS_Code_Workspace/mhw/Data/labels/trainset_label.csv', 
+                        index=False, 
+                        header=False)
+```
+
 
