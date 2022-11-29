@@ -222,38 +222,7 @@ model.add(layers.Flatten())
 model.add(layers.Dense(512, activation='relu'))
 model.add(layers.Dense(933, activation='softmax'))
 ```
-> Model: "sequential"<br>
-> _________________________________________________________________<br>
-> Layer (type)                Output Shape              Param #   <br>
-> =================================================================<br>
-> conv2d (Conv2D)             (None, 295, 46, 64)       640       <br>
->                                                                 <br>
-> max_pooling2d (MaxPooling2D  (None, 147, 23, 64)      0         <br>
-> )                                                               <br>
->                                                                 <br>
-> conv2d_1 (Conv2D)           (None, 145, 21, 128)      73856     <br>
->                                                                 <br>
-> max_pooling2d_1 (MaxPooling  (None, 72, 10, 128)      0         <br>
-> 2D)                                                             <br>
->                                                                 <br>
-> conv2d_2 (Conv2D)           (None, 70, 8, 256)        295168    <br>
->                                                                 <br>
-> max_pooling2d_2 (MaxPooling  (None, 35, 4, 256)       0         <br>
-> 2D)                                                             <br>
->                                                                 <br>
-> conv2d_3 (Conv2D)           (None, 33, 2, 512)        1180160   <br>
->                                                                 <br>
-> flatten (Flatten)           (None, 33792)             0         <br>
->                                                                 <br>
-> dense (Dense)               (None, 512)               17302016  <br>
->                                                                 <br>
-> dense_1 (Dense)             (None, 933)               478629    <br>
->                                                                 <br>
-> ================================================================<br>
-> total params: 19,330,469<br>
-> Trainable params: 19,330,469<br>
-> Non-trainable params: 0<br>
-> _________________________________________________________________<br>
+> ![스크린샷(20)](https://user-images.githubusercontent.com/101073973/204468251-ae489bf3-9403-437e-b3ea-986b7a6b2923.png)<br>
 * 학습
 ```
 checkpoint_path = 'D:/VS_Code_Workspace/mhw/Data/models/cp--{epoch:04d}.ckpt'
