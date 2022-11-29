@@ -90,17 +90,19 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
 <br>
 
 * 메모리 관리 위해 del() 함수를 이용, 사용을 마친 데이터를 제거한다.
-> del(data)<br>
-> del(lengthlist)<br>
-> del(a)<br>
-> del(image)<br>
-> del(dataReshaped)<br>
-> del(margin)<br>
-> del(upper_padding)<br>
-> del(lower_padding)<br>
-> del(upper_margin)<br>
-> del(lower_margin)<br>
-> del(img)
+```
+del(data)
+del(lengthlist)
+del(a)
+del(image)
+del(dataReshaped)
+del(margin)
+del(upper_padding)
+del(lower_padding)
+del(upper_margin)
+del(lower_margin)
+del(img)
+```
 
 ## 2. 데이터 라벨링
 ### 데이터 생성기 클래스에 맞춰 라벨을 재설정
