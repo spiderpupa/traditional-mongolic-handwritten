@@ -131,7 +131,8 @@ trainset_labels.to_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.cs
                         index=False, 
                         header=False)
 ```
-> 대충 형태<br>
+> ![스크린샷(18)](https://user-images.githubusercontent.com/101073973/204460766-0e134b08-90d7-4261-b640-a3ac532ab14a.png)
+<br>
 
 ## 데이터 생성기 클래스
 ```
