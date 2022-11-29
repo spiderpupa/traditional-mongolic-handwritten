@@ -80,13 +80,11 @@ dataReshaped=(image.reshape(1,image.shape[0]*48))
 * 299 x 48 형태로 재배열 후 png 형태로 저장
 ```
     img=img.reshape(299,48)
-    #png로 저장
     matplotlib.image.imsave(outputPath(i), img, cmap='gray')
 ```
-
-
-##### <결과물>
+> <결과물><br>
 ![스크린샷(16)](https://user-images.githubusercontent.com/101073973/204449409-bcab6d6e-d454-49fa-9d75-f317bae635d1.png)
+<br>
 
 * 메모리 관리 위해 del() 함수를 이용, 사용을 마친 데이터를 제거한다.
 > del(data)<br>
