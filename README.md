@@ -22,7 +22,7 @@
 > print('dtype: ', type(data))<br>
 > for i in data.keys():<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;print('label name: "{name}", item quantity: {length}'.format(name=i, length=len(data[i])))<br>
->> <결과>
+>> <결과><br>
 >>![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204452058-d74170c1-c720-49a1-b04c-6f0898b32355.png)
 
 * 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
