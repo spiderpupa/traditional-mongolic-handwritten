@@ -1,4 +1,4 @@
-# traditional-mongolic-handwritten
+# CNN 이용 필기체 고전몽골어 인식
 
 ## 개요
 
