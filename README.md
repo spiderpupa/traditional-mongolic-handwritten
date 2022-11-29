@@ -17,6 +17,11 @@
 ## 데이터셋 처리 후 이미지 파일로 저장
 
 * 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치 확인
+> data=sio.loadmat('/content/drive/MyDrive/mhw/data/Trainset.mat')<br>
+> print("\nTrainset.mat")<br>
+> print('dtype: ', type(data))<br>
+> for i in data.keys():<br>
+>    print('label name: "{name}", item quantity: {length}'.format(name=i, length=len(data[i])))<br>
 ![스크린샷(11)](https://user-images.githubusercontent.com/101073973/204445318-d6ec6474-47a2-4fbc-87ce-2d397e0b8257.png)
 
 * 데이터셋이 들어있는 열은 train_data 열이므로 여기에서 데이터를 추출, 길이 비교를 통해 가장 긴 이미지를 찾는다. (각 이미지의 폭은 48로 고정되어있어 따로 찾지 않았음)
