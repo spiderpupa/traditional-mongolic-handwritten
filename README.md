@@ -134,6 +134,21 @@ trainset_labels.to_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.cs
 <br>
 
 ## 3. 데이터 전처리
+* 데이터셋 분할
+데이터 학습 진행을 위해 불러온 데이터셋을 트레인셋과 테스트셋으로 나눔
+각 세트를 균등하게 나눌 수 있도록 scikit-learn의 train_test_split 기능을 이용
+```
+X=trainset_labels['image']
+y=trainset_labels['labels']
+
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4, random_state=42)
+```
+> ![스크린샷(21)](https://user-images.githubusercontent.com/101073973/204726638-b4f03270-f087-4a9e-88f4-021a0e911774.png)
+각각 6만 개와 4만 개의 데이터로 나뉘었으며, 둘 다 5천 개의 라벨을 가지고 있어 정상적으로 분할된 것을 확인
+* 트레인셋과 테스트셋으로 통합
+train_labels과 test_labels로 데이터프레임을 생성 후 각각에 맞춰 데이터를 추가
+>![스크린샷(22)](https://user-images.githubusercontent.com/101073973/204727372-dd55b0d8-ddcc-477c-bf21-1dd8e11ed8ef.png)
+![스크린샷(23)](https://user-images.githubusercontent.com/101073973/204727384-e3a45bf8-6416-4157-a679-c023b56c5240.png)<br>
 * 데이터 생성기 클래스
 ```
 class DataGenerator(Sequence):
