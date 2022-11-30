@@ -8,7 +8,8 @@
 ![스크린샷(10)](https://user-images.githubusercontent.com/101073973/204441403-a9382958-93e1-483a-b41d-9c212a5de501.png)
 
 * CNN에 관하여<
-* 이와 같은 고전몽골어의 특성은 사람이 읽기에는 문제가 없지만 기계가 학습하도록 만드는 데에는 복잡한 절차가 필요하다고 보았으며, 이미 데이터가 있는 라틴 알파벳, 한글 등에 비해 희소하다고 여겨 문자 인식을 시도할 가치가 있다고 생각한다. 학습에 필요한 데이터셋은 kaggle에 공유된 파일(https://www.kaggle.com/datasets/fandaoerji/mhw-dataset)을 가져왔으며, 10만 개의 데이터를 가진 trainset, 각각 5,000개와 14,085개의 데이터가 들어있는 testset 2개 및 이에 해당하는 라벨이 들어있다.  
+* 이와 같은 고전몽골어의 특성은 사람이 읽기에는 문제가 없지만 기계가 학습하도록 만드는 데에는 복잡한 절차가 필요하다고 보았으며, 이미 데이터가 있는 라틴 알파벳, 한글 등에 비해 희소하다고 여겨 문자 인식을 시도할 가치가 있다고 생각한다. 학습에 필요한 데이터셋은 kaggle에 공유된 파일(https://www.kaggle.com/datasets/fandaoerji/mhw-dataset)을 가져왔으며, 10만 개의 데이터를 가진 trainset, 각각 5,000개와 14,085개의 데이터가 들어있는 testset 2개 및 이에 해당하는 라벨이 들어있다.  <br>
+datasets from FANDAOERJI(https://www.kaggle.com/datasets/fandaoerji/mhw-dataset), last downloaded time is 2022.10.26 KST 14:08
 * 원본 데이터셋은 .mat 확장자로 되어있어 전용 프로그램이 필요하며, 몽골어의 특성 상 알파벳 별보단 단어 별로 구분하는 편이 학습에 유리하다고 보았다. 데이터의 사이즈 또한 단어의 길이에 따라 제각각이기 때문에 python을 통해 데이터셋 내의 배열을 읽고, 가장 긴 이미지에 맞춰 패딩을 추가 후 각각 이미지 파일 형태로 저장하기로 한다.
 * 데이터셋 저장 폴더: https://drive.google.com/drive/folders/1TKAFFS5GjWm2-0GtrlbY83G3TLbPQ-35?usp=sharing
 * DataGenerator 클래스 사용하여 메모리 초과 방지
