@@ -143,7 +143,7 @@ y=trainset_labels['labels']
 
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4, random_state=42)
 ```
-> ![스크린샷(21)](https://user-images.githubusercontent.com/101073973/204726638-b4f03270-f087-4a9e-88f4-021a0e911774.png)
+> ![스크린샷(21)](https://user-images.githubusercontent.com/101073973/204726638-b4f03270-f087-4a9e-88f4-021a0e911774.png)<br>
 각각 6만 개와 4만 개의 데이터로 나뉘었으며, 둘 다 5천 개의 라벨을 가지고 있어 정상적으로 분할된 것을 확인
 * 트레인셋과 테스트셋으로 통합
 train_labels과 test_labels로 데이터프레임을 생성 후 각각에 맞춰 데이터를 추가
