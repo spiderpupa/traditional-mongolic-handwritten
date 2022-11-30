@@ -134,9 +134,9 @@ trainset_labels.to_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.cs
 <br>
 
 ## 3. 데이터 전처리
-* 데이터셋 분할
-데이터 학습 진행을 위해 불러온 데이터셋을 트레인셋과 테스트셋으로 나눔
-각 세트를 균등하게 나눌 수 있도록 scikit-learn의 train_test_split 기능을 이용
+* 데이터셋 분할<br>
+데이터 학습 진행을 위해 불러온 데이터셋을 트레인셋과 테스트셋으로 나눔<br>
+각 세트를 균등하게 나눌 수 있도록 scikit-learn의 train_test_split 기능을 이용<br>
 ```
 X=trainset_labels['image']
 y=trainset_labels['labels']
