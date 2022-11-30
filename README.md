@@ -217,6 +217,12 @@ train_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset
                                 img_sizeX, img_sizeY,
                                 batch_size, 
                                 img_ch, num_class)
+
+test_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset_images', test_labels['image'],
+                                test_labels['labels'],
+                                img_sizeX, img_sizeY,
+                                batch_size, 
+                                img_ch, num_class)
 ```
 ## 4. 학습 및 평가
 * 모델 설정
