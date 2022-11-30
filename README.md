@@ -196,22 +196,19 @@ class DataGenerator(Sequence):
         return X, y
 ```
 * 데이터 전처리
+    - 전체 클래스 수
 ```
-# 이미지 주소 및 클래스 라벨 파일 불러오기
-train_labels = pd.read_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.csv')
-
-# 라벨 정보 전처리
-# 전체 클래스 수
 clss_num = len(train_labels['labels'].unique())
-# 클래스 -> 숫자로 변환 (카테고리 형식의 클래스를 원 핫 인코딩)
+```
+    - 라벨 원 핫 인코딩
+```
 labels_dict = dict(zip(train_labels['labels'].unique(), range(clss_num)))
 train_labels = train_labels.replace({"labels": labels_dict})
-img_sizeX = 299
-img_sizeY = 48
-img_ch = 1
-num_class = 5000
-batch_size = 32
-
+test_labels = test_labels.replace({"labels": labels_dict})
+```
+    - 이미지의 크기(img_sizeX, img_sizeY), 채널(img_ch), 클래스 개수(num_class)와 배치 사이즈(batch_size) 설정
+    - 생성기로 데이터 생성
+```
 train_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset_images', train_labels['image'],
                                 train_labels['labels'],
                                 img_sizeX, img_sizeY,
