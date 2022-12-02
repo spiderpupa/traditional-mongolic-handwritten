@@ -2,7 +2,7 @@
 
 ## 목차
 1. [개요](##1-1.-개요)
-2. [데이터셋 처리 후 이미지 파일로 저장](##1-2.-데이터셋-처리-후-이미지-파일로-저장)
+2. [데이터셋 처리 후 이미지 파일로 저장](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#2-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EC%B2%98%EB%A6%AC-%ED%9B%84-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%A0%80%EC%9E%A5)
 3. [데이터 라벨링](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%9D%BC%EB%B2%A8%EB%A7%81)
 4. [데이터 전처리](##1-4.-데이터-전처리)
 5. [학습 및 평가](##1-5.-학습-및-평가)
