@@ -1,13 +1,13 @@
 # CNN 이용 필기체 고전몽골어 인식
 
 ## 목차
-1. [개요](##1-개요)
-2. [데이터셋 처리 후 이미지 파일로 저장](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EC%B2%98%EB%A6%AC-%ED%9B%84-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%A0%80%EC%9E%A5)
-3. [데이터 라벨링]()
-4. [데이터 전처리]()
-5. [학습 및 평가]()
+1. [개요](##1-1.-개요)
+2. [데이터셋 처리 후 이미지 파일로 저장](##2-2.-데이터셋-처리-후-이미지-파일로-저장)
+3. [데이터 라벨링](##3-3.-데이터-라벨링)
+4. [데이터 전처리](##4-4.-데이터-전처리)
+5. [학습 및 평가](##5-5.-학습-및-평가)
 
-## 개요
+## 1. 개요
 
 * **CNN에 관하여**
    * CNN은 Convolutional Neural Network의 약자
@@ -30,7 +30,7 @@
     - 데이터셋 저장 폴더: https://drive.google.com/drive/folders/1TKAFFS5GjWm2-0GtrlbY83G3TLbPQ-35?usp=sharing
     - DataGenerator 클래스 사용하여 메모리 초과 방지
 
-## 데이터셋 처리 후 이미지 파일로 저장
+## 2. 데이터셋 처리 후 이미지 파일로 저장
 
 #### 데이터셋을 불러와 확인, 형태 확인 후 필요한 데이터셋 위치를 확인한다.
 ```
@@ -121,7 +121,7 @@ del(lower_margin)
 del(img)
 ```
 
-## 2. 데이터 라벨링
+## 3. 데이터 라벨링
 ### 데이터 생성기 클래스에 맞춰 라벨을 재설정
 * 텍스트파일 형태의 라벨을 불러와 image, labels 두 개의 열로 이루어진 리스트로 저장
 ```
@@ -150,7 +150,7 @@ trainset_labels.to_csv('/content/drive/MyDrive/mhw/data/labels/trainset_label.cs
 > ![스크린샷(18)](https://user-images.githubusercontent.com/101073973/204460766-0e134b08-90d7-4261-b640-a3ac532ab14a.png)
 <br>
 
-## 3. 데이터 전처리
+## 4. 데이터 전처리
 * 데이터셋 분할
     - 데이터 학습 진행을 위해 불러온 데이터셋을 트레인셋과 테스트셋으로 나눔
     - 각 세트를 균등하게 나눌 수 있도록 scikit-learn의 train_test_split 기능을 이용
@@ -238,7 +238,7 @@ test_generator = DataGenerator('/content/drive/MyDrive/mhw/data/images/trainset_
                                 batch_size, 
                                 img_ch, num_class)
 ```
-## 4. 학습 및 평가
+## 5. 학습 및 평가
 * 모델 설정
 ```
 model=models.Sequential()
