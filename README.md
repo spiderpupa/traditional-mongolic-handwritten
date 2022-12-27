@@ -279,10 +279,9 @@ model.compile(optimizer='adam',
 history = model.fit_generator(train_generator, epochs=1)
 ```
 * 평가
-```
-#TODO
-''' 트레인셋의 정확도는 만족했지만 테스트셋의 정확도가 낮아 추후 보완이 필요해보임'''
-```
+
+트레인셋의 정확도는 만족했지만 테스트셋의 정확도가 낮아 현재 단계에서는 원하는 정확도를 획득할 수 없었음.
+
 ## 
 
 
