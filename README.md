@@ -6,7 +6,7 @@
 3. [데이터 라벨링](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%9D%BC%EB%B2%A8%EB%A7%81)
 4. [데이터 전처리](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC)
 5. [학습 및 평가](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#5-%ED%95%99%EC%8A%B5-%EB%B0%8F-%ED%8F%89%EA%B0%80)
-6. [결론](##6.-결론)
+6. [결론](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#6-%EA%B2%B0%EB%A1%A0)
 
 ## 1. 개요
 
