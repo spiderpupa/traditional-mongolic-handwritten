@@ -6,6 +6,7 @@
 3. [데이터 라벨링](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%9D%BC%EB%B2%A8%EB%A7%81)
 4. [데이터 전처리](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC)
 5. [학습 및 평가](https://github.com/spiderpupa/traditional-mongolic-handwritten/blob/main/README.md#5-%ED%95%99%EC%8A%B5-%EB%B0%8F-%ED%8F%89%EA%B0%80)
+6. [결론](## 6.-결론)
 
 ## 1. 개요
 
@@ -282,10 +283,11 @@ history = model.fit_generator(train_generator, epochs=1)
 ![스크린샷(1)](https://user-images.githubusercontent.com/101073973/209636591-c801d00b-182c-43f3-934b-ef81465aa8dc.png)
 트레인셋의 정확도는 만족했지만 테스트셋의 정확도가 낮아 현재 단계에서는 원하는 정확도를 획득할 수 없었음.
 
-## 결론
+## 6. 결론
 
 * 이미지 처리 및 데이터 생성 클래스에서 문제가 발생한 것으로 보임
 * 우선 현 단계에서 멈추고 근본적인 방식 혹은 레퍼런스 데이터를 바꿔야 원하는 수준으로 정확도를 향상시킬 수 있을 것으로 생각됨
-* 데이터 전처리에 대한 이해도는 높일 수 있었음
+* 데이터 전처리 및 CNN의 사용법에 대한 이해도는 높일 수 있었음
+* 프로젝트를 다시 돌려서 정확도가 향상되는대로 업데이트할 계획
 
 
